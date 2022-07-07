@@ -27,7 +27,7 @@
 
     $thematrix = new Movie ('The Matrix', '1999', 'Sci-fi/Azione', '2h 16m');
     $thelordoftherings1 = new Movie ('The Lord of the Rings: The Fellowship of the Ring', '2001', 'Fantastico/Avventura', '2h 58m');
-    
+
 ?>
 
 <html lang="en">
@@ -36,30 +36,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- MATRIX -->
-    <div>
+    <ul>
         <?php
-            echo '<br>Titolo: ' . $thematrix->name;
-            echo '<br>Anno: ' . $thematrix->name;
-            echo '<br>Genere: ' . $thematrix->name;
-            echo '<br>Durata: ' . $thematrix->name;
-            echo '<br>' . $thematrix->watchFunction(true);
+            echo '<li>Titolo: ' . $thematrix->name . '</li>';
+            echo '<li>Anno: ' . $thematrix->name . '</li>';
+            echo '<li>Genere: ' . $thematrix->name . '</li>';
+            echo '<li>Durata: ' . $thematrix->name . '</li>';
+            echo '<li class="watch">' . $thematrix->watchFunction(true) . '</li>';
         ?>
-    </div>
+    </ul>
 
     <!-- IL SIGNORE DEGLI ANELLI -->
-    <div>
+    <ul>
         <?php
-            echo '<br>Titolo: ' . $thelordoftherings1->name;
-            echo '<br>Anno: ' . $thelordoftherings1->name;
-            echo '<br>Genere: ' . $thelordoftherings1->name;
-            echo '<br>Durata: ' . $thelordoftherings1->name;
-            echo '<br>' . $thelordoftherings1->watchFunction(false);
+            echo '<li>Titolo: ' . $thelordoftherings1->name . '</li>';
+            echo '<li>Anno: ' . $thelordoftherings1->name . '</li>';
+            echo '<li>Genere: ' . $thelordoftherings1->name . '</li>';
+            echo '<li>Durata: ' . $thelordoftherings1->name . '</li>';
+            echo '<li class="no-watch">' . $thelordoftherings1->watchFunction(false) . '</li>';
         ?>
-    </div>
+    </ul>
     
 </body>
 </html>
