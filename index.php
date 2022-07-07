@@ -5,7 +5,9 @@
         public $length;
         public $year;
 
-        public $watch = true;
+        public $watch;
+
+        public $arr_movies = [];
 
         public function watchFunction ($_watch) {
             if ($this->watch = $_watch) {
@@ -15,18 +17,22 @@
             }
         }
 
-        function __construct($_name, $_year, $_genre, $_length)
+        function __construct($_name, $_year, $_genre, $_length,$_watch)
         {
             $this->name = $_name;
             $this->year = $_year;
             $this->genre = $_genre;
             $this->length = $_length;
+            $this->watch = $_watch;
         }
 
     }
 
-    $thematrix = new Movie ('The Matrix', '1999', 'Sci-fi/Azione', '2h 16m');
-    $thelordoftherings1 = new Movie ('The Lord of the Rings: The Fellowship of the Ring', '2001', 'Fantastico/Avventura', '2h 58m');
+    $thematrix = new Movie ('The Matrix', '1999', 'Sci-fi/Azione', '2h 16m', true);
+    $thelordoftherings1 = new Movie ('The Lord of the Rings: The Fellowship of the Ring', '2001', 'Fantastico/Avventura', '2h 58m', false);
+
+    $arr_movies[] = $thematrix;
+    $arr_movies[] = $thelordoftherings1;
 
 ?>
 
@@ -40,27 +46,24 @@
 </head>
 <body>
 
-    <!-- MATRIX -->
+    <!-- LISTA FILM -->
     <ul>
         <?php
-            echo '<li>Titolo: ' . $thematrix->name . '</li>';
-            echo '<li>Anno: ' . $thematrix->name . '</li>';
-            echo '<li>Genere: ' . $thematrix->name . '</li>';
-            echo '<li>Durata: ' . $thematrix->name . '</li>';
-            echo '<li class="watch">' . $thematrix->watchFunction(true) . '</li>';
+            foreach ($arr_movies as $movie) {
+                echo '<li>Titolo: ' . $movie->name . '</li>';
+                echo '<li>Anno: ' . $movie->name . '</li>';
+                echo '<li>Genere: ' . $movie->name . '</li>';
+                echo '<li>Duramoviea: ' . $movie->name . '</li>';
+                if ($movie->watch == true) {
+                    echo '<li class="watch">' . $movie->watchFunction(true) . '</li>';
+                } else {
+                    echo '<li class="no-watch">' . $movie->watchFunction(false) . '</li>';
+                }
+                
+            }
         ?>
     </ul>
 
-    <!-- IL SIGNORE DEGLI ANELLI -->
-    <ul>
-        <?php
-            echo '<li>Titolo: ' . $thelordoftherings1->name . '</li>';
-            echo '<li>Anno: ' . $thelordoftherings1->name . '</li>';
-            echo '<li>Genere: ' . $thelordoftherings1->name . '</li>';
-            echo '<li>Durata: ' . $thelordoftherings1->name . '</li>';
-            echo '<li class="no-watch">' . $thelordoftherings1->watchFunction(false) . '</li>';
-        ?>
-    </ul>
     
 </body>
 </html>
