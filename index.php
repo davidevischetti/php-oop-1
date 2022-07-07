@@ -29,10 +29,17 @@
     }
 
     $thematrix = new Movie ('The Matrix', '1999', 'Sci-fi/Azione', '2h 16m', true);
-    $thelordoftherings1 = new Movie ('The Lord of the Rings: The Fellowship of the Ring', '2001', 'Fantastico/Avventura', '2h 58m', false);
+    $thelordoftheringsuno = new Movie ('The Lord of the Rings: The Fellowship of the Ring', '2001', 'Fantastico/Avventura', '2h 58m', true);
+    $assassiniosulnilo = new Movie ('Assassinio sul Nilo', '2022', 'Drammatico', '2h 7m', false);
+    $creeddue = new Movie ('Creed II', '2018', 'Drammatico/Sportivo', '2h 10m', false);
+    $revenant = new Movie ('Revenant', '2016', 'Avventura', '2h 36m', true);
+
 
     $arr_movies[] = $thematrix;
-    $arr_movies[] = $thelordoftherings1;
+    $arr_movies[] = $thelordoftheringsuno;
+    $arr_movies[] = $assassiniosulnilo;
+    $arr_movies[] = $creeddue;
+    $arr_movies[] = $revenant;
 
 ?>
 
@@ -47,22 +54,23 @@
 <body>
 
     <!-- LISTA FILM -->
-    <ul>
+    
         <?php
             foreach ($arr_movies as $movie) {
-                echo '<li>Titolo: ' . $movie->name . '</li>';
-                echo '<li>Anno: ' . $movie->name . '</li>';
-                echo '<li>Genere: ' . $movie->name . '</li>';
-                echo '<li>Duramoviea: ' . $movie->name . '</li>';
+                echo '<ul>
+                    <li>Titolo: ' . $movie->name . '</li>
+                    <li>Anno: ' . $movie->name . '</li>
+                    <li>Genere: ' . $movie->name . '</li>
+                    <li>Durata: ' . $movie->name . '</li>';
                 if ($movie->watch == true) {
                     echo '<li class="watch">' . $movie->watchFunction(true) . '</li>';
                 } else {
                     echo '<li class="no-watch">' . $movie->watchFunction(false) . '</li>';
                 }
-                
+                echo '</ul>';
             }
         ?>
-    </ul>
+    
 
     
 </body>
